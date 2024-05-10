@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HALIC Lossless Image Converter</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/halic_logo.png</normaloff>:/icons/halic_logo.png</iconset>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>32</width>
+    <height>32</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab1">
+       <attribute name="title">
+        <string>Images</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QListWidget" name="listImages">
+           <property name="selectionMode">
+            <enum>QAbstractItemView::ExtendedSelection</enum>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>160</width>
+             <height>160</height>
+            </size>
+           </property>
+           <property name="movement">
+            <enum>QListView::Static</enum>
+           </property>
+           <property name="flow">
+            <enum>QListView::LeftToRight</enum>
+           </property>
+           <property name="resizeMode">
+            <enum>QListView::Adjust</enum>
+           </property>
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <property name="viewMode">
+            <enum>QListView::IconMode</enum>
+           </property>
+           <property name="uniformItemSizes">
+            <bool>true</bool>
+           </property>
+           <property name="itemAlignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QGraphicsView" name="graphicsView">
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarAlwaysOff</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelImageInfo">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab3">
+       <attribute name="title">
+        <string>Viewer</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QGraphicsView" name="graphicsViewViewer"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab2">
+       <attribute name="title">
+        <string>Converter</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="showDropIndicator" stdset="0">
+           <bool>false</bool>
+          </property>
+          <property name="dragDropOverwriteMode">
+           <bool>false</bool>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderMinimumSectionSize">
+           <number>20</number>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>25</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Filename</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Format</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Original Size</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Converted Size</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ratio</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Time</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>State</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab4">
+       <attribute name="title">
+        <string>Options</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>12</x>
+          <y>10</y>
+          <width>185</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>OUTPUT FORMAT</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QWidget" name="layoutWidget_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>168</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Convert To :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboFormat">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <property name="maxCount">
+             <number>200</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>HALIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>AVIF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BCM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BIM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BMF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>BMP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>EMMA</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>FLIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>FOX</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>GRALIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HEIF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>HLX</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPEG 2000</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPEG LS</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>JPEG XL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>KVICK</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>LEA</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PNG</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PNM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PPM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PGM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SLIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QLIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QOI</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>RAW</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>SIF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TGA</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>TIFF</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WEBP</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>WEBP 2</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>10</y>
+          <width>377</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>OUTPUT FOLDER</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>311</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QRadioButton" name="radioSourceFolder">
+            <property name="text">
+             <string>Source Folder</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioFolder">
+            <property name="text">
+             <string>Folder</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditFolder">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QPushButton" name="buttonFolder">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>324</x>
+           <y>20</y>
+           <width>31</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="geometry">
+         <rect>
+          <x>12</x>
+          <y>64</y>
+          <width>237</width>
+          <height>93</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>HALIC</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="radioHalicRapid">
+             <property name="text">
+              <string>Rapid</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioHalic04">
+             <property name="text">
+              <string>v0.4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioHalic07">
+             <property name="text">
+              <string>V.0.7</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spin_Halic">
+             <property name="maximum">
+              <number>9</number>
+             </property>
+             <property name="value">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QCheckBox" name="checkBoxMT">
+             <property name="text">
+              <string>Multithread</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBoxFast">
+             <property name="text">
+              <string>Fast</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_6">
+        <property name="geometry">
+         <rect>
+          <x>253</x>
+          <y>64</y>
+          <width>88</width>
+          <height>93</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>PNG</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Level</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinPNG">
+             <property name="maximum">
+              <number>9</number>
+             </property>
+             <property name="value">
+              <number>9</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>344</x>
+          <y>64</y>
+          <width>257</width>
+          <height>93</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>JXL</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <widget class="QWidget" name="">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>36</y>
+           <width>85</width>
+           <height>33</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Thread</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinJXL_Thread">
+            <property name="maximum">
+             <number>32</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QRadioButton" name="radio_Jxl_9">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>44</y>
+           <width>38</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>0.9</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinJXL">
+         <property name="geometry">
+          <rect>
+           <x>103</x>
+           <y>43</y>
+           <width>45</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>9</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="radio_Jxl_10">
+         <property name="geometry">
+          <rect>
+           <x>55</x>
+           <y>44</y>
+           <width>42</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>0.10</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_8">
+        <property name="geometry">
+         <rect>
+          <x>604</x>
+          <y>64</y>
+          <width>177</width>
+          <height>93</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>WEBP</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>-m</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinWebp_m">
+             <property name="maximum">
+              <number>6</number>
+             </property>
+             <property name="value">
+              <number>4</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>-z</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinWebp_z">
+             <property name="maximum">
+              <number>9</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLoad_Images">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLoad_Images"/>
+    <addaction name="separator"/>
+    <addaction name="actionRemove_Selected_Images"/>
+    <addaction name="actionRemove_All_Images"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuConverter">
+    <property name="title">
+     <string>Converter</string>
+    </property>
+    <addaction name="actionConvert_Selected_Images"/>
+    <addaction name="actionConvert_All_Images"/>
+    <addaction name="actionCancel_Converting"/>
+    <addaction name="separator"/>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionUsage"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAbout_Qt"/>
+   </widget>
+   <addaction name="menuLoad_Images"/>
+   <addaction name="menuConverter"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>24</width>
+     <height>24</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionLoad_Images"/>
+   <addaction name="actionRemove_Selected_Images"/>
+   <addaction name="actionRemove_All_Images"/>
+   <addaction name="separator"/>
+   <addaction name="actionConvert_Selected_Images"/>
+   <addaction name="actionConvert_All_Images"/>
+   <addaction name="actionCancel_Converting"/>
+   <addaction name="separator"/>
+   <addaction name="actionSettings"/>
+   <addaction name="actionUsage"/>
+  </widget>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt7.png</normaloff>:/icons/Slayt7.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Sunu12.png</normaloff>:/icons/Sunu12.png</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionUsage">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt14.png</normaloff>:/icons/Slayt14.png</iconset>
+   </property>
+   <property name="text">
+    <string>Usage</string>
+   </property>
+  </action>
+  <action name="actionConvert_Selected_Images">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt1.png</normaloff>:/icons/Slayt1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert Selected Images</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert Selected Images</string>
+   </property>
+  </action>
+  <action name="actionConvert_All_Images">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt2.png</normaloff>:/icons/Slayt2.png</iconset>
+   </property>
+   <property name="text">
+    <string>Convert All Images</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert All Images</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt15.png</normaloff>:/icons/Slayt15.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionLoad_Images">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt3.png</normaloff>:/icons/Slayt3.png</iconset>
+   </property>
+   <property name="text">
+    <string>Load Images</string>
+   </property>
+  </action>
+  <action name="actionRemove_Selected_Images">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt11.png</normaloff>:/icons/Slayt11.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Selected Images</string>
+   </property>
+  </action>
+  <action name="actionRemove_All_Images">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt13.png</normaloff>:/icons/Slayt13.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove All Images</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt10.png</normaloff>:/icons/Slayt10.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionCancel_Converting">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Slayt4.png</normaloff>:/icons/Slayt4.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cancel Converting</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

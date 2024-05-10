@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/halic_logo.png</file>
+        <file>icons/Slayt1.png</file>
+        <file>icons/Slayt2.png</file>
+        <file>icons/Slayt3.png</file>
+        <file>icons/Slayt4.png</file>
+        <file>icons/Slayt7.png</file>
+        <file>icons/Slayt10.png</file>
+        <file>icons/Slayt11.png</file>
+        <file>icons/Slayt13.png</file>
+        <file>icons/Slayt14.png</file>
+        <file>icons/Slayt15.png</file>
+        <file>icons/Sunu12.png</file>
+	<file>icons/img.png</file>
+    </qresource>
+</RCC>

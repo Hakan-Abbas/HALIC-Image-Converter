@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/Ubuntu.ttf</file>
+    </qresource>
+</RCC>
